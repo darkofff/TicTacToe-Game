@@ -1,0 +1,241 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+body {
+  font-size: 3rem;
+  /* font-family: "Indie Flower", cursive; */
+}
+
+.top-container {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 5px double black;
+  margin: 0 2rem;
+  font-family: "Indie Flower", cursive;
+  font-size: 4rem;
+  font-weight: bolder;
+}
+
+.board {
+  height: 60vh;
+  width: 60vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0.5rem;
+  background-color: black;
+  border-radius: 5px;
+  border: 1px solid black;
+  overflow: hidden;
+}
+
+.box {
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: "Indie Flower", cursive;
+  font-size: 7rem;
+}
+
+.box:hover {
+  background-color: whitesmoke;
+  cursor: pointer;
+}
+
+.u-bts {
+  position: absolute;
+  bottom: 10vh;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  width: 100%;
+  max-width: 60vh;
+  justify-content: space-evenly;
+}
+
+.btn {
+  padding: 1rem;
+
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #eee;
+}
+
+.btn:hover {
+  background-color: whitesmoke;
+  cursor: pointer;
+}
+
+.highlight-player {
+  border-bottom: 3px solid red;
+}
+
+/* LINES */
+
+.line {
+  background-color: red;
+}
+
+.line-horizontal {
+  width: 60vh;
+  height: 3px;
+}
+
+.line-vertical {
+  width: 3px;
+  height: 60vh;
+}
+
+.line-diagonal {
+  height: 60vh;
+  width: 3px;
+}
+
+.line-1 {
+  position: absolute;
+  top: 0;
+  left: calc(16.6% - 2px);
+
+  animation-name: lv;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.line-2 {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 1px);
+
+  animation-name: lv;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.line-3 {
+  position: absolute;
+  top: 0;
+  left: 83.5%;
+
+  animation-name: lv;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.line-4 {
+  position: absolute;
+  top: calc(16.6% - 2px);
+  left: 0;
+
+  animation-name: ld;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.line-5 {
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 0;
+
+  animation-name: ld;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.line-6 {
+  position: absolute;
+  top: 83.5%;
+  left: 0;
+
+  animation-name: ld;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.line-7 {
+  position: absolute;
+  top: 0;
+  left: 30vh;
+
+  animation-name: ld7;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  transform: skew(45deg);
+}
+
+.line-8 {
+  position: absolute;
+  top: 0;
+  left: 30vh;
+
+  animation-name: ld8;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  transform: skew(-45deg);
+}
+
+@keyframes lv {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes ld {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes ld7 {
+  from {
+    transform: scale(0) skew(45deg);
+  }
+  to {
+    transform: scale(1, 1) skew(45deg);
+  }
+}
+
+@keyframes ld8 {
+  from {
+    transform: scale(0) skew(-45deg);
+  }
+  to {
+    transform: scale(1, 1) skew(-45deg);
+  }
+}
+
+/* LINES END*/
+
+.score {
+  width: 10vw;
+  display: flex;
+  justify-content: center;
+}
+
+.blockade {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
